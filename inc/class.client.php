@@ -8,7 +8,9 @@ class SRI_Client {
 	function addAttrs( $attrs = array(), $att = 0 ) {
 		
 		$other_sizes = sri_get_the_image_sizes( $att->ID );
-		$attrs = array_merge( $attrs, $other_sizes );
+		if( !empty( $other_sizes ) && is_array( $other_sizes ) )
+			$attrs = array_merge( $attrs, $other_sizes );
+		
 		return $attrs;
 	}
 	
@@ -26,6 +28,9 @@ class SRI_Client {
 		
 		$breakpoints = array_keys( $options['breakpoints'] );
 		$sizes = array_values( $options['breakpoints'] );
+		
+		if( empty( $breakpoints ) || empty( $sizes ) )
+			return false;
 		
 		wp_enqueue_script( 'dbl-take', SRI_URL.'/ressources/js/responsive.js', array( 'jquery' ), SRI_VERSION, true );
 		wp_localize_script( 'dbl-take', 'sri_vars', array(

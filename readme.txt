@@ -4,7 +4,7 @@ Donate link: http://www.beapi.fr/donate/
 Tags: images, image, responsive images, responsive, content
 Requires at least: 3.0
 Tested up to: 3.3.1
-Stable tag: 1.0
+Stable tag: 1.0.1
 
 == Description ==
 
@@ -34,3 +34,8 @@ Based on http://www.grahambird.co.uk/lab/doubletake/ for javascript
 == Changelog ==
 * 1.0
 	* First release
+* 1.0.1
+	* Debug the admin
+	* Right activation call
+	* More tests before making actions
+	

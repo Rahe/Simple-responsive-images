@@ -12,13 +12,16 @@ class SRI_Admin {
 	
 	function addRessources( $hook = '' ) {
 		if( $hook == 'settings_page_sri_optionPage' ) {
-			wp_enqueue_script( 'sri_admin', SRI_URL.'/ressources/js/admin-page.js', array( 'jquery' ), SRI_VERSION, true );
+			wp_enqueue_script( 'sri_admin', SRI_URL.'ressources/js/admin-page.js', array( 'jquery' ), SRI_VERSION, true );
 		}
 	}
 	
 	function addMceValidElements( $init ) {
-		
 		$sizes = sri_get_the_image_sizes();
+		
+		if( empty( $sizes ) )
+			return $init;
+		
 		$basic_img = array( 'src', 'alt', 'title', 'height', 'width', 'class' ) ;
 		$elements = array( 'img' => array_merge( $sizes, $basic_img ) );
 		

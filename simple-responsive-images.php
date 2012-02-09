@@ -3,14 +3,14 @@
 Plugin Name: Simple Responsive Images
 Description: Add options in media setting page for images sizes
 Plugin URI: https://github.com/Rahe/Simple-responsive-images
-Version: 1.0
+Version: 1.0.1
 Author: Rahe
 Author URI: http://nicolas-juen.fr
 Text Domain: sri
 Domain Path: /languages/
 
 2012 Nicolas JUEN (njuen87@gmail.com))
- * 
+
 Contribute on https://github.com/Rahe/Simple-responsive-images
 
 This program is free software; you can redistribute it and/or modify
@@ -29,7 +29,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 define( 'SRI_URL', plugins_url('/', __FILE__) );
 define( 'SRI_DIR', dirname(__FILE__) );
-define( 'SRI_VERSION', '1.0' );
+define( 'SRI_VERSION', '1.0.1' );
 define( 'SRI_OPTION', 'sri_responsive_images' );
 
 
@@ -38,7 +38,7 @@ require_once( SRI_DIR . DIRECTORY_SEPARATOR . 'inc' . DIRECTORY_SEPARATOR . 'cla
 require_once( SRI_DIR . DIRECTORY_SEPARATOR . 'inc' . DIRECTORY_SEPARATOR . 'functions.plugin.php'  );
 
 
-register_activation_hook( __FILE__, array('sri_plugin_install', 'activate') );
+register_activation_hook( __FILE__, 'sri_plugin_install' );
 
 add_action ( 'plugins_loaded', 'initSRI' );
 function initSRI() {
@@ -48,6 +48,6 @@ function initSRI() {
 	
 	$sri['client'] = new SRI_Client();
 	
-	load_plugin_textdomain ( 'sri', false, basename( rtrim( SIS_DIR, '/' ) ) . '/languages' );
+	load_plugin_textdomain ( 'sri', false, basename( rtrim( SRI_DIR, '/' ) ) . '/languages' );
 }
 ?>

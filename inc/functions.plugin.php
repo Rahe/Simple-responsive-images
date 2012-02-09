@@ -1,9 +1,10 @@
 <?php
 function sri_plugin_install() {
-	$opts = get_options( SRI_OPTION );
+	$opts = get_option( SRI_OPTION );
+	
 	if( !empty( $opts ) )
 		return false;
-	
+
 	$default = array(
 		'breakpoints' => array(
 			320 => 'thumbnail',
@@ -14,10 +15,14 @@ function sri_plugin_install() {
 		'html_selector' => 'body'
 	);
 	
-	set_option( SRI_OPTION, $default );
+	update_option( SRI_OPTION, $default );
 }
 function sri_get_the_image_sizes( $id = 0 ) {
 	$options = get_option( SRI_OPTION );
+	
+	if( empty( $options ) )
+		return array();
+	
 	$sizes = array_values($options['breakpoints']);
 	
 	foreach ( $sizes as $s ) {
@@ -52,6 +57,10 @@ function sri_get_image_sizes( $prefix = 'src-' ) {
 
 function sri_get_breakpoint_image_sizes(){
 	$options = get_option( SRI_OPTION );
+	
+	if( empty( $options ) )
+		return array();
+	
 	$sizes = array_values($options['breakpoints']);
 	
 	return $sizes;

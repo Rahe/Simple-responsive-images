@@ -1,5 +1,6 @@
 jQuery( function(){
 	jQuery( '.to-copy' ).hide();
+	
 	// Add a element
 	jQuery( '.sri_add_breakpoint' ).on( 'click', function( e ) {
 		e.preventDefault();
