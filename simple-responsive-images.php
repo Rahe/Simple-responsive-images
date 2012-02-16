@@ -3,7 +3,7 @@
 Plugin Name: Simple Responsive Images
 Description: Add options in media setting page for images sizes
 Plugin URI: https://github.com/Rahe/Simple-responsive-images
-Version: 1.0.1
+Version: 1.0.2
 Author: Rahe
 Author URI: http://nicolas-juen.fr
 Text Domain: sri
@@ -29,7 +29,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 define( 'SRI_URL', plugins_url('/', __FILE__) );
 define( 'SRI_DIR', dirname(__FILE__) );
-define( 'SRI_VERSION', '1.0.1' );
+define( 'SRI_VERSION', '1.0.2' );
 define( 'SRI_OPTION', 'sri_responsive_images' );
 
 

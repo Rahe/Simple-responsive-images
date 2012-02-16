@@ -12,14 +12,13 @@
 (function($){
 
 	$.fn.doubletake = function(userconfig)
-	{	
+	{
 		// DEFAULT CONFIG
 		var config = {
-	 	'breakpoints': [320,640,960,1000],
-	 	'sizes'		: ['thumbnail','medium', 'large', 'full'],
-	 	'watchresize': false
+		'breakpoints': [320,640,960,1000],
+		'sizes'		: ['thumbnail','medium', 'large', 'full'],
+		'watchresize': false
 		};
-	
 		return this.each( function() {
 		
 			var $this = $( this ); 
@@ -44,6 +43,7 @@
 				
 				// LOOP OVER BREAKPOINTS TO WORK OUT WHICH APPLIES BEST
 				$.each(config.breakpoints, function( index, value ) {
+					
 					// IF THE ELEMENT WE'RE INSIDE IS BIGGER THAN THE CURRENT VALUE, INCREASE THE BEST WIDTH AND CONTINUE
 					if ( elementWidth >= value ) {
 						newIndex = index;

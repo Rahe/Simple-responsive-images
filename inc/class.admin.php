@@ -10,19 +10,38 @@ class SRI_Admin {
 		add_action( 'admin_enqueue_scripts', array( &$this, 'addRessources' ) );
 	}
 	
+	/**
+	 * Add the ressources on the right admin page
+	 * 
+	 * @param $hook : the hook of the page
+	 * @return : void
+	 * @author Nicolas Juen
+	 */
 	function addRessources( $hook = '' ) {
 		if( $hook == 'settings_page_sri_optionPage' ) {
 			wp_enqueue_script( 'sri_admin', SRI_URL.'ressources/js/admin-page.js', array( 'jquery' ), SRI_VERSION, true );
 		}
 	}
 	
+	/**
+	 * Add to tinyMce src special attributes
+	 * 
+	 * @param $init : the init vars of tinyMce
+	 * @return : $init
+	 * @author Nicolas Juen
+	 */
 	function addMceValidElements( $init ) {
+		// Get the sizes
 		$sizes = sri_get_the_image_sizes();
 		
+		// If empty, stop now
 		if( empty( $sizes ) )
 			return $init;
 		
+		// Add the basic attributes of an img elements
 		$basic_img = array( 'src', 'alt', 'title', 'height', 'width', 'class' ) ;
+		
+		// Add the custom sizes to the attributes
 		$elements = array( 'img' => array_merge( $sizes, $basic_img ) );
 		
 		$eleList = array();
@@ -190,7 +209,7 @@ class SRI_Admin {
 			<?php wp_nonce_field( 'sri_sizes' ); ?>
 			<h3> <?php esc_html_e( 'Html selector', 'sri'); ?> </h3>
 			<p>
-				<input type="text" class="widefat" value="<?php echo esc_attr( $html_selector ); ?>" />
+				<input type="text" name="html_selector" class="widefat" value="<?php echo esc_attr( $html_selector ); ?>" />
 			</p>
 			<p class="description">
 				<?php esc_html_e( 'This is the HTML selector for the images to resize automatically. If your content images are in a special class or id, so use this one. If you don\'t specify a div, every image generated with wp_get_attachment_image() will be concerned.', 'sri' ); ?>

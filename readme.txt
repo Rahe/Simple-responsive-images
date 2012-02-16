@@ -38,4 +38,6 @@ Based on http://www.grahambird.co.uk/lab/doubletake/ for javascript
 	* Debug the admin
 	* Right activation call
 	* More tests before making actions
-	
+* 1.0.2
+	* Add the name for the html_selector field buggy !
+	* Documentation
