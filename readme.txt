@@ -2,9 +2,9 @@
 Contributors: Rahe
 Donate link: http://www.beapi.fr/donate/
 Tags: images, image, responsive images, responsive, content
-Requires at least: 3.0
+Requires at least: 3.3
 Tested up to: 3.3.1
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 
 == Description ==
 
@@ -24,7 +24,7 @@ Based on http://www.grahambird.co.uk/lab/doubletake/ for javascript
 3. Go to Settings > Reponsive Images
 4. Configure the breakpoints and the html element of the resizing.
 5. Insert one image in your content with the uploader.
-6. Go n your post and try to resize the window
+6. Go on your post and try to resize the window
 7. Let the magic work !
 
 == Screenshots ==
@@ -39,5 +39,6 @@ Based on http://www.grahambird.co.uk/lab/doubletake/ for javascript
 	* Right activation call
 	* More tests before making actions
 * 1.0.2
-	* Add the name for the html_selector field buggy !
-	* Documentation
+	* Debug admin function
+	* Delete option on uninstall
+	

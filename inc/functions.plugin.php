@@ -17,10 +17,15 @@ function sri_plugin_install() {
 	
 	update_option( SRI_OPTION, $default );
 }
+function sri_plugin_desinstall() {
+	delete_option( SRI_OPTION );
+}
+
 function sri_get_the_image_sizes( $id = 0 ) {
 	$options = get_option( SRI_OPTION );
 	
-	if( empty( $options ) )
+	// Check options given
+	if( !isset( $options['breakpoints'] ) || empty( $options['breakpoints'] ) )
 		return array();
 	
 	$sizes = array_values($options['breakpoints']);

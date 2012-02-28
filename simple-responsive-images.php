@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Simple Responsive Images
-Description: Add options in media setting page for images sizes
+Description: Add the possibility for site to have it content images responsive
 Plugin URI: https://github.com/Rahe/Simple-responsive-images
 Version: 1.0.2
 Author: Rahe
@@ -39,6 +39,7 @@ require_once( SRI_DIR . DIRECTORY_SEPARATOR . 'inc' . DIRECTORY_SEPARATOR . 'fun
 
 
 register_activation_hook( __FILE__, 'sri_plugin_install' );
+register_uninstall_hook( __FILE__, 'sri_plugin_desinstall' );
 
 add_action ( 'plugins_loaded', 'initSRI' );
 function initSRI() {
