@@ -32,7 +32,7 @@ class SRI_Admin {
 	 */
 	function addMceValidElements( $init ) {
 		// Get the sizes
-		$sizes = sri_get_the_image_sizes();
+		$sizes = array_keys(sri_get_the_image_sizes());
 		
 		// If empty, stop now
 		if( empty( $sizes ) )
