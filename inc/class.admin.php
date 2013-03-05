@@ -32,7 +32,7 @@ class SRI_Admin {
 	 */
 	function addMceValidElements( $init ) {
 		// Get the sizes
-		$sizes = array_keys(sri_get_the_image_sizes());
+		$sizes = sri_get_the_image_sizes();
 		
 		// If empty, stop now
 		if( empty( $sizes ) ) {
@@ -55,6 +55,7 @@ class SRI_Admin {
 		$eleList = array();
 		foreach ( $elements as $element => $attributes ) {
 			if ( count( $attributes ) > 0 ) {
+				$attributes = array_filter( $attributes );
 				$eleList[] = $element . '[' . implode( '|', $attributes ) . ']';
 			} else {
 				$eleList[] = $element;

@@ -3,8 +3,8 @@ Contributors: Rahe
 Donate link: http://www.beapi.fr/donate/
 Tags: images, image, responsive images, responsive, content
 Requires at least: 3.3
-Tested up to: 3.3.1
-Stable tag: 1.0.2
+Tested up to: 3.5.1
+Stable tag: 1.0.3
 
 == Description ==
 
@@ -41,4 +41,7 @@ Based on http://www.grahambird.co.uk/lab/doubletake/ for javascript
 * 1.0.2
 	* Debug admin function
 	* Delete option on uninstall
-	
+* 1.0.3
+	* Formating
+	* Minified script
+	* Remove bug breaking visual editor
