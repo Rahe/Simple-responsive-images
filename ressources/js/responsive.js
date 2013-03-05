@@ -21,21 +21,20 @@
 		};
 		return this.each( function() {
 		
-			var $this = $( this ); 
+			var $this = $( this ),go; 
 		
 			// GRAB USER CONFIG
 			if ( userconfig ) { 
 				$.extend( config, userconfig );
 			}
 			
-			var go = function()
-			{
-				var newWidth;
-				var newIndex;
-				var elementWidth = $( this ).width();
+			go = function() {
+				var newWidth,
+				newIndex,
+				elementWidth = $( this ).width();
 				
 				// MAKE SURE BREAKPOINTS ARE IN CORRECT ORDER
-				config.breakpoints.sort( function( a, b ){return a-b} );
+				config.breakpoints.sort( function( a, b ){return a-b;} );
 				
 				// USE SMALLEST BREAKPOINT TO START WITH
 				newWidth = config.breakpoints[0];
@@ -56,14 +55,14 @@
 				// LOOP OVER IMAGES INSIDE THE SELECTED ELEMENT
 				$this.find('img[class*="size-"]').each(function() {
 					// Get the el
-					var el = $( this );
+					var el = $( this ),
 					
 					// regexp to get the size in the image
-					var r = new RegExp( "-([0-9]+)x([0-9]+).[a-z]+" );
-					var s_attr = el.attr( 'src-'+config.sizes[newIndex] );
-					var parts = r.exec( s_attr );
+					r = new RegExp( "-([0-9]+)x([0-9]+).[a-z]+" ),
+					s_attr = el.attr( 'src-'+config.sizes[newIndex] ),
+					parts = r.exec( s_attr );
 					
-					if( typeof s_attr != 'undefined' ) {
+					if( typeof s_attr !== 'undefined' ) {
 						
 						if( parts ) {
 							el.attr( 'width', parts[1] );
@@ -76,17 +75,16 @@
 					}
 				});
 			
-			}
+			};
 			
 			// INITIAL PASS
 			go();
 			
-			if (config.watchresize)
-			{
+			if (config.watchresize) {
 				// UPDATE AFTER RESIZE
 				$(window).resize(function()
 				{
-					if(this.resizeTO) clearTimeout(this.resizeTO);
+					if(this.resizeTO) { clearTimeout(this.resizeTO); }
 					this.resizeTO = setTimeout(function() {
 						$(this).trigger('resizeEnd');
 					}, 500);
@@ -97,10 +95,10 @@
 				});
 			}
 		});
-	}
+	};
 })(jQuery);
 jQuery(sri_vars.html_selector).doubletake( {
 	'watchresize': true,
 	'breakpoints' : sri_vars.breakpoints,
-	'sizes' : sri_vars.sizes,
+	'sizes' : sri_vars.sizes
 } );

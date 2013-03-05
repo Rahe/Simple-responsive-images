@@ -51,4 +51,3 @@ function initSRI() {
 	
 	load_plugin_textdomain ( 'sri', false, basename( rtrim( SRI_DIR, '/' ) ) . '/languages' );
 }
-?>

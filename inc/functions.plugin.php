@@ -2,8 +2,9 @@
 function sri_plugin_install() {
 	$opts = get_option( SRI_OPTION );
 	
-	if( !empty( $opts ) )
+	if( !empty( $opts ) ) {
 		return false;
+	}
 
 	$default = array(
 		'breakpoints' => array(
@@ -25,8 +26,9 @@ function sri_get_the_image_sizes( $id = 0 ) {
 	$options = get_option( SRI_OPTION );
 	
 	// Check options given
-	if( !isset( $options['breakpoints'] ) || empty( $options['breakpoints'] ) )
+	if( !isset( $options['breakpoints'] ) || empty( $options['breakpoints'] ) ) {
 		return array();
+	}
 	
 	$sizes = array_values($options['breakpoints']);
 	
@@ -43,16 +45,17 @@ function sri_get_image_sizes( $prefix = 'src-' ) {
 	
 	$other_sizes = array();
 	foreach ( get_intermediate_image_sizes() as $s ) {
-		if ( isset( $_wp_additional_image_sizes[$s]['width'] ) ) // For theme-added sizes
+		if ( isset( $_wp_additional_image_sizes[$s]['width'] ) ) { // For theme-added sizes
 			$width = intval( $_wp_additional_image_sizes[$s]['width'] );
-		else                                                     // For default sizes set in options
+		} else {                                                     // For default sizes set in options
 			$width = get_option( "{$s}_size_w" );
-		
+		}
 		// Set height
-		if ( isset( $_wp_additional_image_sizes[$s]['height'] ) ) // For theme-added sizes
+		if ( isset( $_wp_additional_image_sizes[$s]['height'] ) ) { // For theme-added sizes
 			$height = intval( $_wp_additional_image_sizes[$s]['height'] );
-		else                                                      // For default sizes set in options
+		} else {                                                      // For default sizes set in options
 			$height = get_option( "{$s}_size_h" );
+		}
 			
 		$other_sizes[] = array( $prefix.$s, $width, $height );
 	}
@@ -63,11 +66,11 @@ function sri_get_image_sizes( $prefix = 'src-' ) {
 function sri_get_breakpoint_image_sizes(){
 	$options = get_option( SRI_OPTION );
 	
-	if( empty( $options ) )
+	if( empty( $options ) ) {
 		return array();
+	}
 	
 	$sizes = array_values($options['breakpoints']);
 	
 	return $sizes;
 }
-?>

@@ -35,8 +35,9 @@ class SRI_Admin {
 		$sizes = array_keys(sri_get_the_image_sizes());
 		
 		// If empty, stop now
-		if( empty( $sizes ) )
+		if( empty( $sizes ) ) {
 			return $init;
+		}
 		
 		// Get the array keys
 		$sizes = array_keys( $sizes );
@@ -44,8 +45,9 @@ class SRI_Admin {
 		// Add the basic attributes of an img elements
 		$basic_img = array( 'src', 'alt', 'title', 'height', 'width', 'class' ) ;
 		
-		if( !is_array( $sizes ) )
+		if( !is_array( $sizes ) ) {
 			return $init;
+		}
 		
 		// Add the custom sizes to the attributes
 		$elements = array( 'img' => array_merge( $sizes, $basic_img ) );
@@ -228,4 +230,3 @@ class SRI_Admin {
 	<?php
 	}
 }
-?>
